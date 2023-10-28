@@ -1,0 +1,111 @@
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 1000;
+    font-size: 2.2rem;
+    color: #004AAD;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #004AAD;
+    margin: 0;
+}
+
+h3 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
+.request-main-holder {
+    height: 45rem;
+    width: 79rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.request-holder{
+    border-radius: 2rem;
+    height: 85%;
+    width: 72rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.form-holder {
+    height: 95%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.input-style-sol {
+    width: 100%;
+    align-self: center;
+    height: 4rem;
+    border-radius: 0.3rem;
+    border: none;
+    background-color: #EBEBEB;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: black;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Resto de tu CSS existente */
+
+.input-holder {
+    margin-right: 14rem;
+    margin-top: 1rem; /* Aumenta el margen superior */
+    margin-bottom: 1rem; /* Aumenta el margen inferior */
+    width: 100%; /* Haz los input-holder del ancho completo */
+    justify-content: start;
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* Estilo del botón calcular */
+.btn-calc {
+    width: 100%;
+    height: 5rem;
+    margin-top: -1rem;
+    border-radius: 0.3rem;
+    border: none;
+    color: white;
+    background-color: #004AAD;
+    margin-right: 1rem;
+    transition: background-color 0.2s, color 0.2s; /* Agrega una transición para el color de fondo y el color del texto */
+}
+
+/* Estilo del botón calcular al pasar el mouse por encima */
+.btn-calc:hover {
+    background-color: #00387A; /* Cambia el color de fondo al pasar el mouse por encima */
+    color: #FFFFFF; /* Cambia el color del texto al pasar el mouse por encima */
+    cursor: pointer;
+}

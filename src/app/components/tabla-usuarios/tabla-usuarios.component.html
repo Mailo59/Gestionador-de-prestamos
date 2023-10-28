@@ -1,0 +1,110 @@
+<!-- CONTENEDOR DE TABLA DE USUARIOS -->
+<div class="container container-fluid" style="max-height: 700px;">
+    <div class="text-center">
+        <br>
+        <h3>TABLA DE USUARIOS</h3>
+    </div>
+    <div class="table-responsive" style="max-height: 500px; overflow-y: auto;">
+        <table class="table custom-table table-hover">
+            <thead class="sticky-top">
+                <tr class="table-dark">
+                    <th scope="col">Rol</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th><!-- 
+                    <th scope="col">Dirección</th> -->
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let users of collecionAllUsers">
+                    <td scope="row">{{users.userData.rol}}</td>
+                    <td>{{users.userData.firstName}} {{users.userData.Lastname}}</td>
+                    <td>{{users.userData.email}}</td>
+                    <!--   <td>Escuintla</td> -->
+                    <td>{{users.userData.phone}}</td>
+                    <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Editar"
+                            data-bs-whatever="@mdo"><i class="bi bi-pencil-square"
+                                (click)="getDataUser(users.userData.uid)"></i></button></td>
+                    <td><button type="button" class="btn btn-danger" (click)="deleteUserUid(users.userData.uid)"><i
+                                class="bi bi-trash3-fill"></i></button></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- MODAL PARA EDITAR USUARIO -->
+
+<div class=" modal fade" id="Editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-4" id="exampleModalLabel">EDITAR USUARIO</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3">
+                    <!-- CAMPO DE NOMBRE -->
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-person"></i></div>
+                            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre"  [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                    <!-- CAMPO DE APELLIDO -->
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="inputApellido" placeholder="Apellido"
+                            [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <!-- CAMPO DE ROL -->
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-person-fill-gear"></i></div>
+                            <input type="text" class="form-control" id="inputRol" placeholder="Rol" [(ngModel)]="rol" [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+                    <!-- CAMPO DE EMAIL -->
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-envelope-at"></i></div>
+                            <input type="email" class="form-control" id="inputCorreo" placeholder="Email"
+                                [(ngModel)]="email" [ngModelOptions]="{standalone: true}" disabled="true">
+                        </div>
+                    </div>
+                    <!-- CAMPO DE DIRECCIÓN -->
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-house"></i></div>
+                            <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección">
+                        </div>
+                    </div>
+                    <!-- CAMPO DE CONTRASEÑA -->
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-lock"></i></div>
+                            <input type="text" class="form-control" id="inputUid" placeholder="Uid" [(ngModel)]="uid"[ngModelOptions]="{standalone: true}" disabled="true">
+                        </div>
+                    </div>
+                    <!-- CAMPO DE NUMERO DE TELEFONO -->
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-text"><i class="bi bi-phone"></i></div>
+                            <input type="number" class="form-control" id="inputTelefono" placeholder="Teléfono"
+                                [(ngModel)]="phone" [ngModelOptions]="{standalone: true}">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success"
+                    (click)="editUserUid(uid, firstname, lastname, rol, phone, email)">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<!-- Tabla de datos -->
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Detalle</th>
+                    <th>Acreedor</th>
+                    <th>Total del Préstamo</th>
+                    <th>% Interés</th>
+                    <th>Número de Cuotas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Fila de datos 1 -->
+                <tr>
+                    <td class="td1">PresMiCasita</td>
+                    <td>Banrural</td>
+                    <td>Q.120,000.00</td>
+                    <td>5%</td>
+                    <td>48</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <!-- Fila de datos 2 -->
+                <tr>
+                    <td class="td1">CredSwitch</td>
+                    <td>LaCuracao</td>
+                    <td>Q.5,000.00</td>
+                    <td>0.5%</td>
+                    <td>10</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <!-- Fila de datos 3 -->
+                <tr>
+                    <td class="td2">CredMAX</td>
+                    <td>Grupo Distelsa</td>
+                    <td>Q.3,000.00</td>
+                    <td>0.3%</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <!-- Fila de datos 4 -->
+                <tr>
+                    <td class="td3">CredSwitch</td>
+                    <td>LaCuracao</td>
+                    <td>Q.5,000.00</td>
+                    <td>0.5%</td>
+                    <td>6</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <!-- Fila de datos 5 -->
+                <tr>
+                    <td class="td4">LeClbNoche</td>
+                    <td>LeClubLtd</td>
+                    <td>Q.10,000.00</td>
+                    <td>Sin Interés</td>
+                    <td>18</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Botón para generar un PDF -->
+        <button type="submit" class="boton-agregar">
+            <span>GENERAR PDF</span>
+            <i class="fa-regular fa-file-pdf"></i>
+        </button>

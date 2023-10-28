@@ -1,0 +1,113 @@
+
+<!-- * Contenedor Principal -->
+<div class="main-app-holder">
+
+    <!-- * Contenedor Barra Superior -->
+    <div class="top-bar container-fluid">
+
+        <!-- Título/Logo -->
+        <div class="app-title-holder">
+            <img src="../../../assets/img/Top-Bar-Logo.png" class="img-fluid logo-top" alt="logo" (click)="clickHome()" >
+        </div>
+
+        <!-- Nombre de Usuario -->
+        <ng-container class="user-name-holder">
+            <h1> {{userData.fullName}} - {{userData.rol}} </h1>
+        </ng-container>
+
+        <!-- Cambio de Moneda -->
+        <div class="currency-change-holder">
+            <!--Icono engranaje -->
+            <i class="bi bi-gear" style="color: white; font-size: 30px; cursor: pointer;"
+            [ngClass]="{'active-true': editUserSelected === true, 'active-false': editUserSelected === false}"
+            [ngClass]="{'active-page-flag': editUserSelected === true}"
+             (click)="clickEditUser()"></i>
+        </div>
+    </div>
+
+    <!-- * Holder del contenido -->
+    <div class="app-holder">
+
+        <!-- Sidebar -->
+        <aside class="sidebar-main">
+
+            <!-- Elemento Calculadora -->
+            <div class="side-element-holder container-fluid">
+                <div [ngClass]="{'active-page-flag': homeSelected === true}"></div>
+                <div [ngClass]="{'active-true': homeSelected === true, 'active-false': homeSelected === false}"
+                    class="side-element-holder-content container-fluid" (click)="clickHome()">
+                    <i class="fa-solid fa-calculator side-icon-style"></i>
+                    <h2>Inicio</h2>
+                </div>
+            </div>
+
+            <!-- Elemento Solicitar -->
+            <div class="side-element-holder container-fluid">
+                <div [ngClass]="{'active-page-flag': calculoSelected === true}"></div>
+                <div [ngClass]="{'active-true': calculoSelected === true, 'active-false': calculoSelected === false}"
+                    class="side-element-holder-content container-fluid" (click)="clickSolicitar()">
+                    <i class="fa-solid fa-file-invoice-dollar side-icon-style"></i>
+                    <h2>Cálculo Detallado</h2>
+                </div>
+            </div>
+
+            <!-- Elemento USUARIOS -->
+            <div class="side-element-holder container-fluid" *ngIf="userData.rol == 'Admin'">
+                <div [ngClass]="{'active-page-flag': usuarioSelected === true}"></div>
+                <div [ngClass]="{'active-true': usuarioSelected === true, 'active-false': usuarioSelected === false}"
+                    class="side-element-holder-content container-fluid" (click)="clickUsuario()">
+                    <i class="fa-solid fa-user side-icon-style"></i>
+                    <h2>Usuarios</h2>
+                </div>
+            </div>
+
+            <!-- Elemento Detalle -->
+            <div class="side-element-holder container-fluid">
+                <div [ngClass]="{'active-page-flag': detalleSelected === true}"></div>
+                <div [ngClass]="{'active-true': detalleSelected === true, 'active-false': detalleSelected === false}"
+                    class="side-element-holder-content container-fluid" (click)="clickDetalle()">
+                    <i class="fa-solid fa-clock-rotate-left side-icon-style"></i>
+                    <h2>Historial</h2>
+                </div>
+            </div>
+
+            <!-- Logout -->
+            <div class="side-element-holder container-fluid">
+                <div class="side-element-holder-content active-false container-fluid" (click)="logOut()"
+                    style="color: #FF5757">
+                    <i class="fa-solid fa-right-from-bracket side-icon-style"></i>
+                    <h2>Cerrar Sesión</h2>
+                </div>
+            </div>
+
+        </aside> <!-- TODO: "active-page-flag" es la vista del link seleccionado. Aplicar función -->
+
+        <!-- * Holder contenido -->
+        <div class="content-holder">
+
+            <!-- Componente de turno -->
+            <div *ngIf="homeSelected === true">
+                <app-calc-view></app-calc-view>
+            </div> <!-- TODO: El componente deberá cambiar con el ruteo -->
+
+            <div *ngIf="detalleSelected === true">
+                <app-detalles-view></app-detalles-view>
+
+
+            </div>
+            <div *ngIf="usuarioSelected === true ">
+                <!-- Coloqué el componente de la tabla de usuarios para prueba -->
+                <app-tabla-usuarios></app-tabla-usuarios>
+            </div>
+
+            <div *ngIf="calculoSelected === true">
+                <app-solicitar-view></app-solicitar-view>
+
+            </div>
+            <div *ngIf="editUserSelected === true">
+                <app-editar-perfil></app-editar-perfil>
+            </div>
+
+        </div>
+
+    </div>
